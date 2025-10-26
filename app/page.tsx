@@ -32,7 +32,7 @@ export default function Home() {
 
   const [inputMessage, setInputMessage] = useState<string>('');
 
-  const handleSendMessage = (e) => {
+  const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputMessage.trim()) {
       const randomIndex = Math.floor(Math.random() * randomSentences.length);
