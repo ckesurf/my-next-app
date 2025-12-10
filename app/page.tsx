@@ -45,23 +45,28 @@ export default function Home() {
 
   return (
     <div>
-    <div>
-      {messages.map((msg, index) => (
-        <p key={index}>{msg}</p>
-      ))}
+      <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+        <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+          <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+            <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+              To get started, type in the text box.
+            </h1>
+            <div>
+              {messages.map((msg, index) => (
+                <p style={{ backgroundColor: "#2c2a2a", padding: "10px", margin: "10px" }} key={index}>{msg}</p>
+              ))}
+            </div>
+            <form onSubmit={handleSendMessage}>
+              <input
+                type="text"
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+              />
+              <button type="submit">Send</button>
+            </form>
+          </div>
+        </main>
+      </div>
     </div>
-    <form onSubmit={handleSendMessage}>
-      <input
-        type="text"
-        value={inputMessage}
-        onChange={(e) => setInputMessage(e.target.value)}
-            
-        
-      />
-      <button type="submit">Send</button>
-    </form>
-    
-    
-  </div>
   );
 }
